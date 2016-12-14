@@ -1,0 +1,58 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "engines": {
+    "node": "~6"
+  },
+  "description": "Back-end repository for photography application's client view",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "deploy": "gcloud app deploy app.yaml -q",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novel-approaches/photography-site.git"
+  },
+  "bugs": {
+    "url": "https://github.com/novel-approaches/photography-site/issues"
+  },
+  "homepage": "https://github.com/novel-approaches/photography-site/blob/master/README.md",
+  "readme": "ERROR: No README data found!",
+  "keywords": [
+    "Back-End",
+    "Galleria Scola",
+    "Photo Wall",
+    "Photography",
+    "Claire Wilson",
+    "Novel Approaches"
+  ],
+  "author": {
+    "name": "Travis O'Neill",
+    "email": "travis.h.oneill@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "Oliver Isenrich",
+      "email": "IsenrichO@gmail.com"
+    },
+    {
+      "name": "Travis O'Neill",
+      "email": "travis.h.oneill@gmail.com"
+    }
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mailgun": "^0.5.0",
+    "nodemailer": "^2.6.4",
+    "request": "^2.79.0",
+    "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "redux-promise": "^0.5.3"
+  }
+}
