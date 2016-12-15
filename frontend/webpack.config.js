@@ -1,7 +1,3 @@
-const webpack = require('webpack'),
-      path = require('path');
-
-
 module.exports = {
   context: __dirname,
   entry: './app/App.jsx',
@@ -30,7 +26,6 @@ module.exports = {
       , {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader: 'file-loader?name=[name].[ext]&ouputPath=app/static/images/'
-        // "file-loader?name=[name].[ext]&publicPath=assets/foo/&outputPath=app/images/"
       }
     ]
   },

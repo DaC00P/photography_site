@@ -4,12 +4,12 @@ const Server = Express();
 const Request = require('request');
 const BodyParser = require('body-parser');
 const Path = require('path');
+const Emailer = require('./emailer');
 
 const API = {
   "admin_url": "https://439198291915981:Mkg4z0aSdewn1XlM79gNvxz1EwY@api.cloudinary.com/v1_1/clairephotography"
 }
 
-const Emailer = require('./emailer');
 
 Server.use(Express.static(Path.join(__dirname + '/static')));
 Server.use(BodyParser.json());
