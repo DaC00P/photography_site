@@ -45,7 +45,7 @@ Server.post('/order', (req, res) => {
 
 let server;
 if (module === require.main) {
-  server = Server.listen(process.env.PORT || 8080, () => {
+  server = Server.listen(process.env.PORT || 8000, () => {
     const PORT = server.address().port;
       console.log('Node Server listening on port %s', PORT);
   });

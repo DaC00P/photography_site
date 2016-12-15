@@ -5,9 +5,8 @@ import { connect } from 'react-redux';
 import path from 'path';
 
 import { addToShoppingCart, getPhotos, setAjaxSpinner } from '../actions/index';
-import Grid from '../PhotoGridAPI/scripts/Grid';
 
-//Whoever wrote all the ternaries in here,  I hate you. :( TODO refactor the ternaries. 
+//Whoever wrote all the ternaries in here,  I hate you. :( TODO refactor the ternaries.
 class ThumbnailsMap extends Component {
   constructor(props) {
     super(props);

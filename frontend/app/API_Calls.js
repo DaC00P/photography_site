@@ -12,21 +12,6 @@ export const FetchImageURLs = function(callback = function() {}) {
   });
 };
 
-export const FetchImageURLs1 = function() {
-  return $.ajax({
-    url: '/images',
-    type: 'get',
-    async: false,
-    success(res) {
-      console.log(res);
-      // callback(res);
-    },
-    error(err) {
-      console.log(err);
-    }
-  });
-};
-
 export function FetchImageData(callback) {
   return $.ajax({
     url: '/images',

@@ -4,49 +4,36 @@
   "engines": {
     "node": "~6"
   },
-  "description": "Back-end repository for photography application's client view",
+  "description": "Back End Node Server + Emailer",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "deploy": "gcloud app deploy app.yaml -q",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/novel-approaches/photography-site.git"
+    "url": "git+https://github.com/DaC00P/photography_site"
   },
   "bugs": {
-    "url": "https://github.com/novel-approaches/photography-site/issues"
+    "url": "https://github.com/DaC00P/photography_site/issues"
   },
-  "homepage": "https://github.com/novel-approaches/photography-site/blob/master/README.md",
+  "homepage": "",
   "readme": "ERROR: No README data found!",
   "keywords": [
     "Back-End",
-    "Galleria Scola",
-    "Photo Wall",
     "Photography",
     "Claire Wilson",
     "Novel Approaches"
   ],
   "author": {
-    "name": "Travis O'Neill",
-    "email": "travis.h.oneill@gmail.com"
+    "name": "Daniel Cuperman"
   },
-  "maintainers": [
-    {
-      "name": "Oliver Isenrich",
-      "email": "IsenrichO@gmail.com"
-    },
-    {
-      "name": "Travis O'Neill",
-      "email": "travis.h.oneill@gmail.com"
-    }
-  ],
+  "maintainers": {
+    "name": "Daniel Cuperman"
+  },
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "mailgun": "^0.5.0",
     "nodemailer": "^2.6.4",
     "request": "^2.79.0",
     "util": "^0.10.3"

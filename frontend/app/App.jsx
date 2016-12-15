@@ -7,7 +7,7 @@ import promise from 'redux-promise';
 
 import rootReducer from './reducers/rootReducer';
 import '../static/styles/master.scss';
-import Top from './containers/Top';
+import Top from './components/Top';
 
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -27,12 +27,9 @@ class App extends Component {
   }
 };
 
-export default App;
-
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<App />, document.getElementById('root'));
 });
 
-
-// { this.props }
+export default App;

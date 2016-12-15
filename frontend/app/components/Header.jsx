@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import OrderFormModal from '../containers/OrderFormModal';
+import OrderFormModal from './OrderFormModal';
 import { toggleModal } from '../actions/index';
 import Logo from '../../static/images/logo_lv7v7x.png';
 
