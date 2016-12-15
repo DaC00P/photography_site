@@ -18,6 +18,10 @@ Server.get('/*', (req, res) => {
   res.redirect('/');
 });
 
+Server.get('/', (req, res) => {
+  res.sendFile('index.html');
+});
+
 Server.get('/images', (req, res) => {
   const parse = (url) => {
     const query = `/upload/w_800,c_fill`;

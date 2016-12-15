@@ -7,7 +7,7 @@
   "description": "Back End Node Server + Emailer",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "DEBUG=express* node server.js"
   },
   "repository": {
     "type": "git",
