@@ -12,15 +12,22 @@ const API = {
 
 
 Server.use(Express.static(Path.join(__dirname + '/static')));
+
 Server.use(BodyParser.json());
 
-Server.get('/*', (req, res) => {
-  res.redirect('/');
-});
+
+// Server.get('/*', (req, res) => {
+//   res.redirect('/');
+// });
 
 Server.get('/', (req, res) => {
   res.sendFile('index.html');
 });
+//FIXME CSS not getting served, FIXME
+
+// Server.get('/style/style.css', (req, res) => {
+//   res.sendFile('master.scss')
+// });
 
 Server.get('/images', (req, res) => {
   const parse = (url) => {

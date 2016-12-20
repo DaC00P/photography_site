@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import path from 'path';
 
 import Photo from './photo';
-import { addToShoppingCart, getPhotos, setAjaxSpinner } from '../actions/index';
+import {addToShoppingCart, getPhotos} from '../actions/index';
 
 //Whoever wrote all the ternaries in here,  I hate you. :( TODO refactor the ternaries.
 class ThumbnailsMap extends Component {
@@ -16,11 +16,14 @@ class ThumbnailsMap extends Component {
     this.setToActive = this.setToActive.bind(this);
   }
 
-  //TODO AND FIXME This needs to be refactored to just be a flex column thing
+  componentWillMount() {
+    getPhotos();
+  }
 
   renderGrid() {
     let PhotoGrid;
-    let photos = ['http://res.cloudinary.com/clairephotography/image/upload/v1481667263/cq2r93bnkvzuxvauk1mf.jpg'];
+    //temp hardcoded photo urls for testing
+    let photos = ['http://res.cloudinary.com/clairephotography/image/upload/v1481667263/cq2r93bnkvzuxvauk1mf.jpg', 'http://res.cloudinary.com/clairephotography/image/upload/v1481667263/cq2r93bnkvzuxvauk1mf.jpg'];
 
     //TODO implement this conditional logic once photo objects are in store
     // if (photos.length !== 0){
@@ -29,15 +32,16 @@ class ThumbnailsMap extends Component {
     // else {
     // }
 
-    return photos.map((photo) => {
-      return (
-        <Photo className='photo'>
-          key={photo}
-          url={photo}
-          setToActive={ this.setToActive }
-          selectPhoto={ this.props.selFote }
-          order={ false }
-        </Photo>);
+      return photos.map((photo) => {
+        return (
+          <Photo className='photo'
+            key={Math.random()}
+            url={photo}
+            setToActive={ this.setToActive }
+            selectPhoto={ this.props.selFote }
+            order={ false }
+            />
+        );
       });
 
     };
@@ -81,9 +85,12 @@ let mapStateToProps = (state) => ({
   shoppingCart: state.shoppingCart
 });
 
-let mapDispatchToProps = (dispatch) => bindActionCreators({
-  addToShoppingCart,
-  getPhotos
-}, dispatch);
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    addToShoppingCart,
+    getPhotos
+   }, dispatch);
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ThumbnailsMap);
