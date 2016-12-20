@@ -10,12 +10,10 @@ let thumbResize = 'http://res.cloudinary.com/clairephotography/image/upload/v148
 
 function handlePhotoClick(event) {
   event.preventDefault();
-  console.log('clck')
+  console.log('photo click - implement prop-passed method here')
 }
 
 export default (props) => {
-  console.log('##PHOTO PROPS##');
-  console.log(props);
   return (
     <div className='image-checkbox-combo'>
       <PhotoCheckbox className='photo-checkbox'/>

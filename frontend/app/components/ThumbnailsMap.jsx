@@ -18,15 +18,29 @@ class ThumbnailsMap extends Component {
 
   //TODO AND FIXME This needs to be refactored to just be a flex column thing
 
-  // renderGrid() {
-  //   let PhotoGrid;
-  //   console.log('###PROPS###')
-  //   console.log(this.props)
-  //   if (true) {
-  //     return (
-  //       Photo
-  //     )};
-  //   };
+  renderGrid() {
+    let PhotoGrid;
+    let photos = ['http://res.cloudinary.com/clairephotography/image/upload/v1481667263/cq2r93bnkvzuxvauk1mf.jpg'];
+
+    //TODO implement this conditional logic once photo objects are in store
+    // if (photos.length !== 0){
+    //   return (<h2 className="no-search-results">Apologies, no matching search results</h2>);
+    // }
+    // else {
+    // }
+
+    return photos.map((photo) => {
+      return (
+        <Photo className='photo'>
+          key={photo}
+          url={photo}
+          setToActive={ this.setToActive }
+          selectPhoto={ this.props.selFote }
+          order={ false }
+        </Photo>);
+      });
+
+    };
 
   // Handles delegation of the appropriate `className` values of jobs such that the currently
   //  active job (`activeJob`) has an additional class of `.active`:
@@ -49,16 +63,12 @@ class ThumbnailsMap extends Component {
   } //FIXME WHAT THE FUCK, nah...
 
   render() {
-    // let photos = this.renderGrid();
+    let photos = this.renderGrid();
 
     return (
       <main id="photo-gallery">
         <div className="photo-thumbnail-grid">
-          <Photo className='testphoto'
-            setToActive={ this.setToActive }
-            selectPhoto={ this.props.selFote }
-            order={ false }
-          />
+          {photos}
         </div>
       </main>
     );
