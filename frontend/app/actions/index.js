@@ -2,8 +2,6 @@
 import axios from 'axios';
 
 
-export const MODIFY_GRID_MARGINS = 'MODIFY_GRID_MARGINS';
-export const MODIFY_GRID_SIZE = 'MODIFY_GRID_SIZE';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART';
 export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
@@ -14,6 +12,7 @@ export const CHANGE_ITEM_QUANTITY = 'CHANGE_ITEM_QUANTITY';
 export const SET_CONTACT_INFO = 'SET_CONTACT_INFO';
 
 export const getPhotos = () => {
+  console.log('getphotos index')
   const request = axios.get('/images');
   return {
     type: GET_IMAGE_OBJECT,
@@ -23,10 +22,6 @@ export const getPhotos = () => {
 
 // Action creator stages or unsets the AJAX loading spinner:
 //  @param {booean} loading
-export const setAjaxSpinner = (loading) => ({
-  type: SET_AJAX_SPINNER,
-  loading
-});
 
 export const submitOrder = (order, phone, email) => {
   console.log('@@ACTION@@')

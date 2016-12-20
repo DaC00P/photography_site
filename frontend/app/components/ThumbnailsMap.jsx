@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import path from 'path';
+import Photo from './photo';
 
 import { addToShoppingCart, getPhotos, setAjaxSpinner } from '../actions/index';
 
@@ -13,49 +14,23 @@ class ThumbnailsMap extends Component {
     this.applyButtonStyle = this.applyButtonStyle.bind(this);
     this.setActive = this.setActive.bind(this);
     this.setToActive = this.setToActive.bind(this);
-    this.init = 0;
-    props.getPhotos();
   }
 
-  renderGrid() {
-    let PhotoGrid;
-    if (this.props.imgObj.length) {
-      this.props.setAjaxSpinner(false);
-      PhotoGrid =(
-        <Grid
-          items={ this.props.imgObj }
-          setToActive={ this.setToActive }
-          // selectFunc={ this.selectPhoto }
-          selFote={ this.props.selFote }
-          maxHeight={ this.props.gridSize }
-          margins={ this.props.gridMargins }
-          order={ true } />
-      );
-    } else {
-      this.init
-        ? PhotoGrid =
-          <div className='noResultsShown'>
-            <h4 className='noResultsShown'>No Results Now</h4>
-          </div>
-        : (this.init++, PhotoGrid =
-          <div id='placesContainer'>
-            {[
-              <i
-                className='fa fa-refresh fa-spin fa-5x fa-fw spinner'
-                key='RefreshAnimation'>
-              </i>,
-              `\tLoading...`
-            ]}
-          </div>
-        )
-    }
-    return PhotoGrid;
-  }
+  //TODO AND FIXME This needs to be refactored to just be a flex column thing
+
+  // renderGrid() {
+  //   let PhotoGrid;
+  //   console.log('###PROPS###')
+  //   console.log(this.props)
+  //   if (true) {
+  //     return (
+  //       Photo
+  //     )};
+  //   };
 
   // Handles delegation of the appropriate `className` values of jobs such that the currently
   //  active job (`activeJob`) has an additional class of `.active`:
   setActive() {
-    // return job === this.props.activeJob ? 'active jobLI' : 'jobLI';
     return Object.keys(this.props.shoppingCart).length
       ? 'active'
       : 'inactive';
@@ -74,10 +49,16 @@ class ThumbnailsMap extends Component {
   } //FIXME WHAT THE FUCK, nah...
 
   render() {
+    // let photos = this.renderGrid();
+
     return (
       <main id="photo-gallery">
-        <div className="grid-wrap">
-          { this.renderGrid() }
+        <div className="photo-thumbnail-grid">
+          <Photo className='testphoto'
+            setToActive={ this.setToActive }
+            selectPhoto={ this.props.selFote }
+            order={ false }
+          />
         </div>
       </main>
     );
@@ -86,17 +67,13 @@ class ThumbnailsMap extends Component {
 
 
 let mapStateToProps = (state) => ({
-  gridMargins: state.gridMargins,
-  gridSize: state.gridSize,
   imgObj: state.imageObject,
-  shoppingCart: state.shoppingCart,
-  ajaxSpinner: state.ajaxSpinner
+  shoppingCart: state.shoppingCart
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
   addToShoppingCart,
-  getPhotos,
-  setAjaxSpinner
+  getPhotos
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ThumbnailsMap);
