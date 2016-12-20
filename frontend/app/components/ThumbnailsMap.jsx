@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import path from 'path';
-import Photo from './photo';
 
+import Photo from './photo';
 import { addToShoppingCart, getPhotos, setAjaxSpinner } from '../actions/index';
 
 //Whoever wrote all the ternaries in here,  I hate you. :( TODO refactor the ternaries.

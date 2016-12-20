@@ -1,5 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
+import PhotoCheckbox from './PhotoCheckbox'
 
 
 const API_BASE = 'https://res.cloudinary.com/clairephotography/image/upload/';
@@ -13,13 +14,15 @@ function handlePhotoClick(event) {
 }
 
 export default (props) => {
+  console.log('##PHOTO PROPS##');
   console.log(props);
   return (
-    <div>
+    <div className='image-checkbox-combo'>
+      <PhotoCheckbox className='photo-checkbox'/>
       <img
         src={thumbResize}
-        onClick={handlePhotoClick}
-        />
+        onClick={handlePhotoClick}>
+      </img>
     </div>
   );
 }

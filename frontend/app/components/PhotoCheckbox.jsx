@@ -16,11 +16,12 @@ export default class PhotoCheckbox extends Component {
     return (
       <div
         className="checkbox"
-        role="checkbox"
-        // onClick={ () => this.props.selectFunc(this.props.photo) }
-        onClick={ () => this.props.selFote(this.props.photo) }>
-        <CheckboxGlyph />
+        role="checkbox">
+        <CheckboxGlyph/>
       </div>
     );
   }
 };
+
+
+        // onClick={ () => this.props.selFote(this.props.photo) }>
