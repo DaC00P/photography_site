@@ -1,76 +1,41 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "engines": {
-    "node": ">=0.8.0"
-  },
-  "description": "Photography Order Site for Galleria Scola",
+  "description": "",
   "main": "webpack.config.js",
+  "devDependencies": {
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "chai": "^3.5.0",
+    "chai-jquery": "^2.0.0",
+    "jquery": "^2.2.1",
+    "jsdom": "^8.1.0",
+    "mocha": "^2.4.5",
+    "react-addons-test-utils": "^0.14.7",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "dependencies": {
+    "axios": "^0.15.2",
+    "babel-preset-stage-1": "^6.1.18",
+    "lodash": "^3.10.1",
+    "normalize-scss": "^6.0.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-google-maps": "^4.11.0",
+    "react-image-gallery": "^0.7.3",
+    "react-redux": "^4.0.0",
+    "react-router": "^2.8.1",
+    "react-sparklines": "^1.6.0",
+    "redux": "^3.0.4",
+    "redux-promise": "^0.5.3"
+  },
   "scripts": {
+    "test": "mocha",
     "start": "webpack --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DaC00P/photography_site"
-  },
-  "bugs": {
-    "url": "https://github.com/DaC00P/photography_site/issues"
-  },
-  "homepage": "",
-  "readme": "ERROR: No README data found!",
-  "keywords": [
-    "Galleria Scola",
-    "Photography",
-    "Claire Wilson",
-    "Novel Approaches"
-  ],
-  "author": {
-    "name": "Novel Approaches"
-  },
-  "maintainers": {
-    "name": "Novel Approaches"
-  },
-  "license": "ISC",
-  "dependencies": {
-    "react": "^15.4.1",
-    "request": "^2.79.0",
-    "util": "^0.10.3",
-    "webpack": "^1.13.3"
-  },
-  "devDependencies": {
-    "autoprefixer-loader": "^3.2.0",
-    "axios": "^0.15.3",
-    "babel-core": "^6.18.2",
-    "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.8",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-object-assign": "^6.8.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "babelify": "^7.3.0",
-    "css-loader": "^0.26.0",
-    "eslint": "^3.11.1",
-    "eslint-plugin-react": "^6.7.1",
-    "file-loader": "^0.9.0",
-    "json-loader": "^0.5.4",
-    "mocha": "^3.2.0",
-    "node-sass": "^3.13.0",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-modal": "^1.5.2",
-    "react-redux": "^4.4.6",
-    "redux": "^3.6.0",
-    "redux-logger": "^2.7.4",
-    "redux-promise": "^0.5.3",
-    "redux-thunk": "^2.1.0",
-    "sass-loader": "^4.0.2",
-    "style-loader": "^0.13.1",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
-  },
-  "optionalDependencies": {},
-  "peerDependencies": {
-    "react": ">=0.14"
-  }
+  "author": "Novel Approaches",
+  "license": "ISC"
 }

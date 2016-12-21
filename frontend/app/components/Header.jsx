@@ -20,7 +20,8 @@ class Header extends Component {
   }
 
   displayCartCount() {
-    return Object.keys(this.props.cart).length;
+    // return Object.keys(this.props.cart).length;
+    return 0;
   }
 
   render() {

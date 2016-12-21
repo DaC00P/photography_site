@@ -44,7 +44,6 @@ Server.get('/images', (req, res) => {
       obj.url = parse(obj.url);
       obj.secure_url = parse(obj.secure_url);
     });
-
     res.send(data);
   });
 });

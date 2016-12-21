@@ -8,7 +8,7 @@ import { toggleModal, submitOrder } from '../actions/index';
 import ProductOrderItem from '../components/ProductOrderItem';
 import OrderTotal from '../components/OrderTotal';
 import SubmitOrder from '../components/SubmitOrder';
-import OrderFormModalStyles from '../constants/json/OrderFormModalStyles.json';
+// import OrderFormModalStyles from '../constants/json/OrderFormModalStyles.json';
 
 
 class OrderFormModal extends Component {
@@ -23,19 +23,20 @@ class OrderFormModal extends Component {
   }
 
   renderProducts(cart) {
-    return Object.values(cart).map((photo, index, list) =>
-      <ProductOrderItem
-        key={ `ProductOrder_${index}` }
-        photo={ photo }
-        itemNum={ index + 1 } />
-    );
+    // return Object.values(cart).map((photo, index, list) =>
+    //   <ProductOrderItem
+    //     key={ `ProductOrder_${index}` }
+    //     photo={ photo }
+    //     itemNum={ index + 1 } />
+    // );
+    return (<h2> FUCK </h2>);
   }
 
   render() {
     return (
       <Modal
         isOpen={ this.props.orderFormModal }
-        style={ OrderFormModalStyles }>
+        contentLabel=''>
         <h3>Your Order Summary</h3>
         <i
           id="close-modal-btn"

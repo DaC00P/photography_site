@@ -1,24 +1,27 @@
-'use strict';
 import axios from 'axios';
 
 
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART';
 export const TOGGLE_PHOTO_SELECTION_STATE = 'TOGGLE_PHOTO_SELECTION_STATE';
+
 export const GET_IMAGE_OBJECT = 'GET_IMAGE_OBJECT';
+
 export const SUBMIT_ORDER = 'SUBMIT_ORDER';
 export const CHANGE_ITEM_QUANTITY = 'CHANGE_ITEM_QUANTITY';
 
 export const getPhotos = () => {
   const request = axios.get('/images');
-  return {
-    type: GET_IMAGE_OBJECT,
-    payload: request
-  };
+
+  return request.then((data) => {
+    return {
+      type: GET_IMAGE_OBJECT,
+      payload: data.data
+    };
+  });
 };
 
 export const submitOrder = (order, phone, email) => {
-  console.log('@@ACTION@@')
   const request = axios.post('/order', {
       order, phone, email
     })

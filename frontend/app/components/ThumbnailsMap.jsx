@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import path from 'path';
 
 import Photo from './photo';
 import {addToShoppingCart, getPhotos} from '../actions/index';
@@ -14,37 +13,8 @@ class ThumbnailsMap extends Component {
     this.applyButtonStyle = this.applyButtonStyle.bind(this);
     this.setActive = this.setActive.bind(this);
     this.setToActive = this.setToActive.bind(this);
+    this.photos = [];
   }
-
-  componentWillMount() {
-    getPhotos();
-  }
-
-  renderGrid() {
-    let PhotoGrid;
-    //temp hardcoded photo urls for testing
-    let photos = ['http://res.cloudinary.com/clairephotography/image/upload/v1481667263/cq2r93bnkvzuxvauk1mf.jpg', 'http://res.cloudinary.com/clairephotography/image/upload/v1481667263/cq2r93bnkvzuxvauk1mf.jpg'];
-
-    //TODO implement this conditional logic once photo objects are in store
-    // if (photos.length !== 0){
-    //   return (<h2 className="no-search-results">Apologies, no matching search results</h2>);
-    // }
-    // else {
-    // }
-
-      return photos.map((photo) => {
-        return (
-          <Photo className='photo'
-            key={Math.random()}
-            url={photo}
-            setToActive={ this.setToActive }
-            selectPhoto={ this.props.selFote }
-            order={ false }
-            />
-        );
-      });
-
-    };
 
   // Handles delegation of the appropriate `className` values of jobs such that the currently
   //  active job (`activeJob`) has an additional class of `.active`:
@@ -66,6 +36,33 @@ class ThumbnailsMap extends Component {
       : 'nah');
   } //FIXME WHAT THE FUCK, nah...
 
+
+  componentWillMount() {
+    getPhotos();
+  }
+
+  renderGrid() {
+    let PhotoGrid;
+    if(this.photos.length){
+      console.log('length')
+      return this.photos.map((photo) => {
+        return (
+          <Photo className='photo'
+            key={Math.random()}
+            url={photo}
+            setToActive={ this.setToActive }
+            selectPhoto={ this.props.selFote }
+            order={ false }
+            />
+        );
+      });
+    }else {
+      console.log('NO LENGTH')
+      return (<h2 className="no-search-results">Apologies, no matching search results</h2>);
+    };
+  };
+
+
   render() {
     let photos = this.renderGrid();
 
@@ -81,7 +78,7 @@ class ThumbnailsMap extends Component {
 
 
 let mapStateToProps = (state) => ({
-  imgObj: state.imageObject,
+  imageObject: state.imageObject,
   shoppingCart: state.shoppingCart
 });
 
@@ -91,6 +88,6 @@ function mapDispatchToProps(dispatch) {
     addToShoppingCart,
     getPhotos
    }, dispatch);
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ThumbnailsMap);
