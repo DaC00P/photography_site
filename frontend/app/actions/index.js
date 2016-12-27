@@ -39,7 +39,7 @@ export const submitOrder = (order, phone, email) => {
 
 export const addToShoppingCart = (photo) => ({
   type: ADD_TO_SHOPPING_CART,
-  photo
+  payload: photo
 });
 
 export const changeItemQuantity = (item) => ({

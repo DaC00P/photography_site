@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Photo from './photo';
-import {addToShoppingCart, getPhotos} from '../actions/index';
+import { getPhotos } from '../actions/index';
 
 //Whoever wrote all the ternaries in here,  I hate you. :( TODO refactor the ternaries.
 class ThumbnailsMap extends Component {
@@ -48,7 +48,7 @@ class ThumbnailsMap extends Component {
             key={photo.public_id}
             url={photo}
             setToActive={ this.setToActive }
-            selectPhoto={ this.props.selFote }
+            selectPhoto={ this.props.selectPhoto }
             order={ false }
             />
         );
@@ -81,7 +81,6 @@ let mapStateToProps = (state) => ({
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    addToShoppingCart,
     getPhotos
    }, dispatch);
 };

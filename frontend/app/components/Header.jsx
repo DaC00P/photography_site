@@ -15,7 +15,7 @@ class Header extends Component {
     this.displayCartCount = this.displayCartCount.bind(this);
   }
 
-  renderModal(evt) {
+  renderModal(event) {
     this.props.toggleModal();
   }
 
@@ -38,7 +38,9 @@ class Header extends Component {
             alt="Shopping cart glyph icon (Gray)."
             id="shopping-cart-icon"
             onClick={ this.renderModal } />
-          <i>{ this.displayCartCount() }</i>
+          <i id='shopping-cart-total'>
+            { this.displayCartCount() }
+          </i>
         </div>
         <OrderFormModal />
       </header>
