@@ -13,10 +13,16 @@ class Header extends Component {
     super(props);
     this.renderModal = this.renderModal.bind(this);
     this.displayCartCount = this.displayCartCount.bind(this);
+    this.state = {
+      isModalOpen: false
+    };
   }
 
   renderModal(event) {
-    this.props.toggleModal();
+    let modalState = this.state.isModalOpen
+    this.setState({
+      isModalOpen: !modalState
+    });
   }
 
   displayCartCount() {
@@ -41,7 +47,9 @@ class Header extends Component {
             { this.displayCartCount() }
           </i>
         </div>
-        <OrderFormModal />
+        <OrderFormModal
+          isOpen={this.state.isModalOpen}
+          />
       </header>
     );
   }
@@ -51,9 +59,9 @@ let mapStateToProps = (state) => ({
   orderFormModal: state.orderFormModal,
   shoppingCart: state.shoppingCart
 });
+//
+// let mapDispatchToProps = (dispatch) => bindActionCreators({
+//   toggleModal
+// }, dispatch);
 
-let mapDispatchToProps = (dispatch) => bindActionCreators({
-  toggleModal
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

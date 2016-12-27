@@ -23,19 +23,18 @@ class OrderFormModal extends Component {
   }
 
   renderProducts(cart) {
-    // return Object.values(cart).map((photo, index, list) =>
-    //   <ProductOrderItem
-    //     key={ `ProductOrder_${index}` }
-    //     photo={ photo }
-    //     itemNum={ index + 1 } />
-    // );
-    return (<h2> FUCK </h2>);
+    return Object.values(cart).map((photo, index, list) =>
+      <ProductOrderItem
+        key={ `ProductOrder_${index}` }
+        photo={ photo }
+        itemNum={ index + 1 } />
+    );
   }
 
   render() {
     return (
       <Modal
-        isOpen={ this.props.orderFormModal }
+        isOpen={ this.props.isOpen }
         contentLabel=''>
         <h3>Your Order Summary</h3>
         <i
