@@ -46,10 +46,10 @@ class ThumbnailsMap extends Component {
         return (
           <Photo className='photo'
             key={photo.public_id}
-            url={photo}
-            setToActive={ this.setToActive }
-            selectPhoto={ this.props.selectPhoto }
-            order={ false }
+            photoObject={photo}
+            setToActive={this.setToActive}
+            selectPhoto={this.props.selectPhoto}
+            order={false}
             />
         );
       });

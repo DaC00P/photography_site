@@ -2,7 +2,7 @@
 import { ADD_TO_SHOPPING_CART, EMPTY_SHOPPING_CART } from '../actions/index';
 
 
-const toggleSelectedState = (payload) => Object.assign({}, payload, { selected: !payload.selected });
+const toggleSelectedState = (photo) => Object.assign({}, photo, { selected: !photo.selected });
 
 export default function payloadSelect(state = {}, action) {
   switch (action.type) {
@@ -11,10 +11,11 @@ export default function payloadSelect(state = {}, action) {
       return {};
     case ADD_TO_SHOPPING_CART:
       // console.log(`Action <${action.type}> registered with payload <payload: `, action.payload, '>');
-      console.log('@@@PHOTO')
-      console.log(action.payload);
-      const statePhotoKey = action.payload['public_id'],
-            toggledPhoto = toggleSelectedState(action.payload);
+      const statePhotoKey = action.payload['public_id']
+      const toggledPhoto = toggleSelectedState(action.payload);
+
+      //NOTE RIGHT NOW: the observed behavior is that one click adds, and another removes.
+      //Thats probably what this if-else statement does..
       if (!state.hasOwnProperty(statePhotoKey)) {
         return Object.assign({}, state, { [statePhotoKey]: toggledPhoto });
       } else if (state.hasOwnProperty(statePhotoKey)) {
