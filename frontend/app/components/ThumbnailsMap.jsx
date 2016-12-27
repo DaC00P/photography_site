@@ -13,7 +13,6 @@ class ThumbnailsMap extends Component {
     this.applyButtonStyle = this.applyButtonStyle.bind(this);
     this.setActive = this.setActive.bind(this);
     this.setToActive = this.setToActive.bind(this);
-    this.photos = [];
   }
 
   // Handles delegation of the appropriate `className` values of jobs such that the currently
@@ -38,17 +37,15 @@ class ThumbnailsMap extends Component {
 
 
   componentWillMount() {
-    getPhotos();
+    this.props.getPhotos();
   }
 
   renderGrid() {
-    let PhotoGrid;
-    if(this.photos.length){
-      console.log('length')
-      return this.photos.map((photo) => {
+    if(this.props.imageObject){
+      return this.props.imageObject.map((photo) => {
         return (
           <Photo className='photo'
-            key={Math.random()}
+            key={photo.public_id}
             url={photo}
             setToActive={ this.setToActive }
             selectPhoto={ this.props.selFote }
@@ -57,7 +54,6 @@ class ThumbnailsMap extends Component {
         );
       });
     }else {
-      console.log('NO LENGTH')
       return (<h2 className="no-search-results">Apologies, no matching search results</h2>);
     };
   };

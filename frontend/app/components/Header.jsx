@@ -30,7 +30,8 @@ class Header extends Component {
         <img
           src={ Logo }
           alt="Site logo home, Galleria Scola"
-          role="logo" />
+          role="logo"
+          id="logo"/>
         <div className="shopping-cart">
           <img
             src="https://cdn4.iconfinder.com/data/icons/greicons-2/1052/CARRITO-512.png"

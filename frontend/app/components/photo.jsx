@@ -16,7 +16,7 @@ function handlePhotoClick(event) {
 export default (props) => {
   return (
     <div className='image-checkbox-combo'>
-      <PhotoCheckbox className='photo-checkbox'/>
+      <PhotoCheckbox id='photo-checkbox'/>
       <img
         src={thumbResize}
         onClick={handlePhotoClick}>
