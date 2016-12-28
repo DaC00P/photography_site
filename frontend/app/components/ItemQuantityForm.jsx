@@ -17,14 +17,13 @@ class ItemQuantityForm extends Component {
 
   changeQuantity(evt) {
     let [num, ID] = [evt.target.value, this.props.photoID],
-        { size, price } = evt.target.dataset;
+        {size} = evt.target.dataset;
 
     this.props.changeItemQuantity({
       photoID: ID,
       quantity: {
         [size]: num
-      },
-      price: num * price
+      }
     });
   }
 
@@ -43,10 +42,12 @@ class ItemQuantityForm extends Component {
       <li
         key={ `ItemSize_${index}` }
         className="size">
+
         <label
           htmlFor={ `size-${obj.size}` }>
           { obj.dimensions }
         </label>
+
         <input
           id={ `size-${obj.size}` }
           type="number"
@@ -54,15 +55,16 @@ class ItemQuantityForm extends Component {
           max={ Number.MAX_SAFE_INTEGER }
           defaultValue={ 0 }
           data-size={ obj.dimensions.replace(/\s/g, '') }
-          data-price={ obj.price }
           onChange={ this.changeQuantity }
           onMouseOver={ this.enableInput }
           onMouseLeave={ this.disableInput }
           disabled />
+
         <output
           htmlFor={ `size-${obj.size}` } >
           { `$${(index * 5) + 10}` }
         </output>
+
       </li>
     );
   }
@@ -71,18 +73,16 @@ class ItemQuantityForm extends Component {
     const SIZES = [
       {
         size: 'small',
-        dimensions: '4 x 6',
-        price: 5
+        dimensions: '4 x 6'
       }, {
         size: 'medium',
-        dimensions: '5 x 7',
-        price: 10
+        dimensions: '5 x 7'
       }, {
         size: 'large',
-        dimensions: '8 x 10',
-        price: 15
+        dimensions: '8 x 10'
       }
     ];
+
     return (
       <form className="quantity-form">
         <ul className="sizes-list">
@@ -93,12 +93,8 @@ class ItemQuantityForm extends Component {
   }
 };
 
-let mapStateToProps = (state) => ({
-
-});
-
 let mapDispatchToProps = (dispatch) => bindActionCreators({
   changeItemQuantity
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemQuantityForm);
+export default connect(mapDispatchToProps)(ItemQuantityForm);

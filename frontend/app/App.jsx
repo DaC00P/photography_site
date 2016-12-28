@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import promise from 'redux-promise';
 
 import rootReducer from './reducers/rootReducer';
-import '../static/styles/master.css';
 import Top from './components/Top';
 
 

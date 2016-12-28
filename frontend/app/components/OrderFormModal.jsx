@@ -8,8 +8,6 @@ import { toggleModal, submitOrder } from '../actions/index';
 import ProductOrderItem from '../components/ProductOrderItem';
 import OrderTotal from '../components/OrderTotal';
 import SubmitOrder from '../components/SubmitOrder';
-// import OrderFormModalStyles from '../constants/json/OrderFormModalStyles.json';
-
 
 class OrderFormModal extends Component {
   constructor(props) {
@@ -18,8 +16,9 @@ class OrderFormModal extends Component {
     this.renderProducts = this.renderProducts.bind(this);
   }
 
-  closeOrderFormModal(evt) {
-    this.props.toggleModal();
+  closeOrderFormModal(event) {
+    event.preventDefault();
+    this.props.isOpen = false;
   }
 
   renderProducts(cart) {
@@ -36,32 +35,35 @@ class OrderFormModal extends Component {
       <Modal
         isOpen={ this.props.isOpen }
         contentLabel=''>
+
         <h3>Your Order Summary</h3>
-        <i
+
+        <div
           id="close-modal-btn"
-          onClick={ this.closeOrderFormModal }>
-          &times;
-        </i>
+          onClick={this.props.changeModalState}
+          >
+          X
+        </div>
+
         <ul id="orders-list">
           { this.renderProducts(this.props.shoppingCart) }
           <OrderTotal />
           <SubmitOrder
-            sub={ this.props.submitOrder }
-            order={ this.props.orderQuantities } />
+            sub={this.props.submitOrder}
+            order={this.props.orderQuantities }/>
         </ul>
+
       </Modal>
     )
   }
 };
 
 let mapStateToProps = (state) => ({
-  orderFormModal: state.orderFormModal,
   orderQuantities: state.orderQuantity,
   shoppingCart: state.shoppingCart
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
-  toggleModal,
   submitOrder
 }, dispatch);
 

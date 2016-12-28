@@ -13,15 +13,19 @@ class Header extends Component {
     super(props);
     this.renderModal = this.renderModal.bind(this);
     this.displayCartCount = this.displayCartCount.bind(this);
+    this.changeModalState = this.changeModalState.bind(this);
     this.state = {
       isModalOpen: false
     };
   }
 
   renderModal(event) {
-    let modalState = this.state.isModalOpen
+    this.changeModalState();
+  }
+
+  changeModalState() {
     this.setState({
-      isModalOpen: !modalState
+      isModalOpen: !this.state.isModalOpen
     });
   }
 
@@ -37,6 +41,7 @@ class Header extends Component {
           alt="Site logo home, Galleria Scola"
           role="logo"
           id="logo"/>
+
         <div className="shopping-cart">
           <img
             src="https://cdn4.iconfinder.com/data/icons/greicons-2/1052/CARRITO-512.png"
@@ -47,21 +52,19 @@ class Header extends Component {
             { this.displayCartCount() }
           </i>
         </div>
+
         <OrderFormModal
           isOpen={this.state.isModalOpen}
+          changeModalState={this.changeModalState}
           />
+
       </header>
     );
   }
 };
 
 let mapStateToProps = (state) => ({
-  orderFormModal: state.orderFormModal,
   shoppingCart: state.shoppingCart
 });
-//
-// let mapDispatchToProps = (dispatch) => bindActionCreators({
-//   toggleModal
-// }, dispatch);
 
 export default connect(mapStateToProps)(Header);
