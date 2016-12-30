@@ -10,19 +10,10 @@ import { getPhotos } from '../actions/index';
 class ThumbnailsMap extends Component {
   constructor(props) {
     super(props);
-    this.applyButtonStyle = this.applyButtonStyle.bind(this);
-    this.setActive = this.setActive.bind(this);
     this.setToActive = this.setToActive.bind(this);
   }
 
-  // Handles delegation of the appropriate `className` values of jobs such that the currently
-  //  active job (`activeJob`) has an additional class of `.active`:
-  setActive() {
-    return Object.keys(this.props.shoppingCart).length
-      ? 'active'
-      : 'inactive';
-  }
-
+  // Handles delegation of the appropriate `className` values of photos currently in shoppingCart
   applyButtonStyle() {
     return Object.keys(this.props.shoppingCart).length
       ? 'active'
@@ -30,10 +21,15 @@ class ThumbnailsMap extends Component {
   }
 
   setToActive(photo) {
-    return 'perfect-grid__item ' + (photo['public_id'] in (this.props.shoppingCart)
-      ? 'activateMe'
-      : 'nah');
-  } //FIXME WHAT THE FUCK, nah...
+    let className = 'photo';
+    console.log('#######');
+    console.log(Object.keys(this.props.shoppingCart).includes(photo.public_id));
+
+    if(this.props.shoppingCart.length > 0 && (Object.keys(this.props.shoppingCart).includes(photo.public_id))) {
+      className += 'activePhoto';
+    }
+    return className
+  }
 
 
   componentWillMount() {
@@ -44,12 +40,13 @@ class ThumbnailsMap extends Component {
     if(this.props.imageObject){
       return this.props.imageObject.map((photo) => {
         return (
-          <Photo className='photo'
+          <Photo active={(photo) => this.setToActive(photo)}
             key={photo.public_id}
             photoObject={photo}
             setToActive={this.setToActive}
             selectPhoto={this.props.selectPhoto}
             order={false}
+            selected={false}
             />
         );
       });
