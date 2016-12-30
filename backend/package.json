@@ -32,6 +32,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "basic-auth": "^1.1.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "nodemailer": "^2.6.4",

@@ -1,3 +1,17 @@
+/* ADMIN INTERFACE STYLES*/
+
+#admin{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#upload_widget_opener {
+  /*Style the upload widget opener here*/
+}
+
+/*MAIN SITE STYLES*/
 header {
   display: flex;
   flex-direction: row;
