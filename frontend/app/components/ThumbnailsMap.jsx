@@ -22,9 +22,6 @@ class ThumbnailsMap extends Component {
 
   setToActive(photo) {
     let className = 'photo';
-    console.log('#######');
-    console.log(Object.keys(this.props.shoppingCart).includes(photo.public_id));
-
     if(this.props.shoppingCart.length > 0 && (Object.keys(this.props.shoppingCart).includes(photo.public_id))) {
       className += ' activePhoto';
     }

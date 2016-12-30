@@ -7,7 +7,6 @@ const URL_BASE = 'https://res.cloudinary.com/clairephotography/image/upload/';
 
 const thumbResize = (imgPath) => `${URL_BASE}h_200/${imgPath}`;
 const onPhotoClick = (props) => {
-  console.log(props);
   props.selectPhoto(props.photoObject);
   props.setToActive(props.photoObject);
 };

@@ -10,14 +10,15 @@ class ItemQuantityForm extends Component {
   constructor(props) {
     super(props);
     this.renderSizes = this.renderSizes.bind(this);
-    this.changeQuantity = this.changeQuantity.bind(this);
+    this.changeItemQuantity = this.changeItemQuantity.bind(this);
     this.enableInput = this.enableInput.bind(this);
     this.disableInput = this.disableInput.bind(this);
   }
 
-  changeQuantity(evt) {
-    let [num, ID] = [evt.target.value, this.props.photoID],
-        {size} = evt.target.dataset;
+  changeItemQuantity(evt) {
+    const ID = this.props.photoID;
+    let num =  evt.target.value;
+    let size = evt.target.dataset;
 
     this.props.changeItemQuantity({
       photoID: ID,
@@ -55,7 +56,7 @@ class ItemQuantityForm extends Component {
           max={ Number.MAX_SAFE_INTEGER }
           defaultValue={ 0 }
           data-size={ obj.dimensions.replace(/\s/g, '') }
-          onChange={ this.changeQuantity }
+          onChange={ this.changeItemQuantity }
           onMouseOver={ this.enableInput }
           onMouseLeave={ this.disableInput }
           disabled />
@@ -97,4 +98,4 @@ let mapDispatchToProps = (dispatch) => bindActionCreators({
   changeItemQuantity
 }, dispatch);
 
-export default connect(mapDispatchToProps)(ItemQuantityForm);
+export default connect(null, mapDispatchToProps)(ItemQuantityForm);

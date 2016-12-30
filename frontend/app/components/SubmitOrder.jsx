@@ -17,7 +17,8 @@ class SubmitOrder extends Component {
   }
 
   onSub(evt) {
-    // console.log('\n STATE FROM SUB:', this.state);
+    console.log('\n STATE FROM SUB:', this.state);
+    //FIXME FIXME ORDER SUBMISSION REDUCER IS BORKED NEEDS FIXING BEFORE SUBMIT WILL WORK
     this.props.sub(this.props.order, this.state.email, this.state.phone);
   }
 

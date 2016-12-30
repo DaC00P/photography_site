@@ -47,12 +47,6 @@ export const changeItemQuantity = (item) => ({
   payload: item
 });
 
-// Action used to handle display toggle of OrderFormModal React container:
-export const toggleModal = () => ({
-  type: TOGGLE_MODAL
-});
-
-
 export const toggleGalleryPhotoSelection = (photo) => ({
   type: TOGGLE_PHOTO_SELECTION_STATE,
   photo
